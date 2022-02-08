@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+  },
+  "scripts": {
+    "startred": "node server.js red",
+    "startblue": "node server.js blue"
+  },
+  "name": "cptdjsserver",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
