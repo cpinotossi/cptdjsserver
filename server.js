@@ -6,13 +6,11 @@ const fs = require('fs');
 const url = require('url');
 require('dotenv').config();
 
-const portHttp = process.env.PORTHTTP;
-const portSSL = process.env.PORTSSL;
 const domain = process.env.DOMAIN;
-
 let args=process.argv;
-const color = args.length>2 ? args[2] : process.env.SCOLOR;
-
+const portHttp = args.length>2 ? args[2] : process.env.PORTHTTP;
+const portSSL = args.length>3 ? args[3] : process.env.PORTSSL;
+const color = args.length>4 ? args[4] : process.env.SCOLOR;
 
 // Object which will be printed on server response
 let socketDetails = {
@@ -68,7 +66,7 @@ serverSSL.on('request',(req,res)=>{
     res.end();
 });
 serverSSL.listen(portSSL,'0.0.0.0',()=>{
-    console.log(`ServerSSL waiting on port ${portSSL} for you`)
+    console.log(`Server ${color} HTTP port ${portSSL}`)
 })
 
 // Create http server
@@ -92,7 +90,7 @@ server.on('request',(req,res)=>{
 });
 
 server.listen(portHttp,'0.0.0.0',()=>{
-    console.log(`ServerHTTP waiting on port ${portHttp} for you`)
+    console.log(`Server ${color} HTTP port ${portHttp}`)
 })
 
 function fibo(num){
