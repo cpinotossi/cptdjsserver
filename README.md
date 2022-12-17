@@ -72,6 +72,10 @@ openssl pkcs12 \
     -certfile "openssl/${domain}.ca.crt" \
     -out "openssl/${domain}.srv.pfx" \
     -password pass:test123!
+
+# Verify certificate
+openssl pkcs12 -in "openssl/${domain}.srv.pfx" -info
+test123!
 ~~~
 
 ### Test
