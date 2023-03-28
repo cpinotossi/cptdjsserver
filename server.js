@@ -10,9 +10,10 @@ require('dotenv').config();
 
 const domain = process.env.DOMAIN;
 let args=process.argv;
-const portHttp = args.length>2 ? args[2] : process.env.PORTHTTP;
-const portSSL = args.length>3 ? args[3] : process.env.PORTSSL;
-const color = args.length>4 ? args[4] : process.env.SCOLOR;
+const color = args.length>2 ? args[2] : process.env.SCOLOR;
+const portHttp = args.length>3 ? args[3] : process.env.PORTHTTP;
+const portSSL = args.length>4 ? args[4] : process.env.PORTSSL;
+console.count(portHttp)
 
 // Option of the SSL server
 const optionsSSL = {
