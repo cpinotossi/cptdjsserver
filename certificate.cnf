@@ -32,3 +32,5 @@ subjectAltName = @alt_names
 DNS.1 = red.cptdev.com
 DNS.2 = blue.cptdev.com
 DNS.3 = green.cptdev.com
+DNS.4 = www.cptdev.com
+DNS.5 = *.cptdev.com
