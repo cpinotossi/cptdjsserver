@@ -62,7 +62,7 @@ function requestDefaultHandler(req,res,cb){
         rport:req.socket.remotePort
     };
     res.setHeader('server',color);
-    res.write(`<body bgcolor="${color}">\n`);
+    res.write(`<body bgcolor="${color}"><pre>\n`);
     res.write(`Incoming Request URL: ${req.url}\n`)
     res.write(`reqh:${JSON.stringify(req.headers, null, '\t')}\n`);
     res.write(`resh:${JSON.stringify(res.getHeaders(), null, '\t')}\n`);
@@ -70,6 +70,6 @@ function requestDefaultHandler(req,res,cb){
     if (req.socket.authorized){
         res.write(`client-cert:${req.socket.getPeerCertificate().subject.CN}\n`);
     }
-    res.write(`</body>\n`);
+    res.write(`</pre></body>\n`);
     cb(req,res)
 }

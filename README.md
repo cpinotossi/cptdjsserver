@@ -61,4 +61,19 @@ screen -r webserver # to reattach
 # [CTRL]+[a]+[d] to detach
 screen -X -S webserver quit # you want to kill] quit
 screen -ls
+
+# test via public internet
+# Install ngrok
+sudo snap install ngrok
+screen -S webserver
+sudo npm start
+# [CTRL]+[a]+[d] to detach
+screen -S ngrok
+# Create new terminaln CTRL+SHIFT+ö
+ngrok http 80 --host-header="localhost:80" # open in new terminal
+# [CTRL]+[a]+[d] to detach
+curl https://0ae4-108-143-12-226.ngrok-free.app 
+screen -X -S webserver quit # you want to kill] quit
+screen -X -S ngrok quit # you want to kill] quit
+screen -ls
 ~~~
