@@ -46,7 +46,7 @@ openssl pkcs12 -in "openssl/${domain}.srv.pfx" -info
 test123!
 ~~~
 
-### Test
+### Test simple Http request.
 
 ~~~ bash
 screen -S webserver
@@ -77,3 +77,20 @@ screen -X -S webserver quit # you want to kill] quit
 screen -X -S ngrok quit # you want to kill] quit
 screen -ls
 ~~~
+
+### Test Blob request
+
+~~~ bash
+sudo node server.js red 80 443 cptdazmon2 cptdazmon test.txt
+curl -v http://localhost/blob/ # 200 OK
+~~~
+
+## Misc
+
+### Linux
+
+~~~bash
+sudo lsof -i :443 # find process using port 443
+sudo kill -9 PID # kill process
+~~~
+
