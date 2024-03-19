@@ -94,3 +94,13 @@ sudo lsof -i :443 # find process using port 443
 sudo kill -9 PID # kill process
 ~~~
 
+
+### Github
+
+~~~bash
+git status
+git add .
+git commit -m "Azure Blob Storage test"
+git push origin master
+~~~
+
