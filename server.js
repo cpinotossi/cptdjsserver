@@ -87,6 +87,12 @@ async function requestDefaultHandler(req,res,cb){
         const downloadBlockBlobResponse = await blobClient.download(0);
         // const blobData = (await streamToBuffer(downloadBlockBlobResponse.readableStreamBody)).toString();
         const blobData = await streamToText(downloadBlockBlobResponse.readableStreamBody);
+        let jsonHeaderString = downloadBlockBlobResponse._response.headers;
+        let blobResponseHeaders = JSON.parse(jsonHeaderString);
+        for (let [key, value] of Object.entries(blobResponseHeaders)) {
+          logger.info(`BlobHeader ${key} : ${value}`)
+          res.setHeader(key,value);
+        }
         res.write(blobData);
     } else {
         res.write(`<body bgcolor="${color}"><pre>\n`);

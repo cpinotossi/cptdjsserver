@@ -81,7 +81,7 @@ screen -ls
 ### Test Blob request
 
 ~~~ bash
-sudo node server.js red 80 443 cptdazmon2 cptdazmon test.txt
+sudo node server.js red 80 443 cptdazmon cptdazmon test.txt
 curl -v http://localhost/blob/ # 200 OK
 ~~~
 
