@@ -97,7 +97,7 @@ async function requestDefaultHandler(req, res, cb) {
   } else if (req.url.match(/\/redirect/)) {
     // send redirect to https://ifconfig.io/
     res.writeHead(302, {
-      'Location': 'https://ifconfig.io/'
+      'Location': 'http://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=fb233fd3-e840-4618-8e3a-e944b497b9d6&scope=user.read&response_type=code&response_mode=query&redirect_url=http://'+req.headers['host']+':5000/redirect'
     });
   } else {
     res.write(`<body bgcolor="${color}"><pre>\n`);
