@@ -20,7 +20,7 @@ const azureStorageContainerName = args.length > 6 ? args[6] : process.env.AZURE_
 // Read env variable azureStorageBlob from args or .env
 const azureStorageBlobName = args.length > 7 ? args[7] : process.env.AZURE_STORAGE_BLOB_NAME;
 
-console.count(portHttp)
+// console.count(portHttp)
 
 // Option of the SSL server
 const optionsSSL = {
@@ -97,7 +97,7 @@ async function requestDefaultHandler(req, res, cb) {
   } else if (req.url.match(/\/redirect/)) {
     // send redirect to https://ifconfig.io/
     res.writeHead(302, {
-      'Location': 'http://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=fb233fd3-e840-4618-8e3a-e944b497b9d6&scope=user.read&response_type=code&response_mode=query&redirect_url=http://'+req.headers['host']+':5000/redirect'
+      'Location': 'http://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=fb233fd3-e840-4618-8e3a-e944b497b9d6&scope=user.read&response_type=code&response_mode=query&redirect_url=https://'+req.headers['host']+'/auth'
     });
   } else {
     res.write(`<body bgcolor="${color}"><pre>\n`);

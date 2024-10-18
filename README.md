@@ -59,4 +59,5 @@ curl http://localhost:8080/
 curl --tlsv1.2 --cacert ./openssl/cptdev.com.ca.crt --resolve red.cptdev.com:4040:127.0.0.1 -v https://red.cptdev.com:4040/ # should server 200 OK
 pm2 start server.js -- blue
 curl -v http://localhost:8080/redirect
+curl -vk --resolve www.cptdev.com:4040:127.0.0.1 https://www.cptdev.com/redirect
 ~~~
